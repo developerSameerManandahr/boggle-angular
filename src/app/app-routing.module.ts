@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {WordBoxComponent} from './component/word-box/word-box.component';
+import {BogglePlayComponent} from './component/boggle-play/boggle-play.component';
 import {AppComponent} from './app.component';
 import {IntroComponent} from './component/intro/intro.component';
+import {ScoreComponent} from './component/score/score.component';
 
 
 const routes: Routes = [
   {path: '', component: IntroComponent},
-  {path: 'play', component: WordBoxComponent}
+  {path: 'play', component: BogglePlayComponent},
+  {path: 'score', component: ScoreComponent}
 ];
 
 @NgModule({

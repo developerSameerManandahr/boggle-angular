@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WordBoxComponent } from './word-box.component';
+import { BogglePlayComponent } from './boggle-play.component';
 import {RouterTestingModule} from '@angular/router/testing';
 
 describe('WordBoxComponent', () => {
-  let component: WordBoxComponent;
-  let fixture: ComponentFixture<WordBoxComponent>;
+  let component: BogglePlayComponent;
+  let fixture: ComponentFixture<BogglePlayComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WordBoxComponent ],
+      declarations: [ BogglePlayComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WordBoxComponent);
+    fixture = TestBed.createComponent(BogglePlayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,11 +6,11 @@ import {WordManagerService} from '../../service/word-manager/word-manager.servic
 
 @Component({
   selector: 'app-word-box',
-  templateUrl: './word-box.component.html',
-  styleUrls: ['./word-box.component.scss'],
+  templateUrl: './boggle-play.component.html',
+  styleUrls: ['./boggle-play.component.scss'],
   providers: [WordGeneratorService]
 })
-export class WordBoxComponent implements OnInit {
+export class BogglePlayComponent implements OnInit {
   public letterMatrix: Array<Array<Letter>> = [];
   public squareLength = 4;
   public wordList = [];
