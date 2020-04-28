@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LetterBoxComponent } from './component/letter-box/letter-box.component';
+import { WordBoxComponent } from './component/word-box/word-box.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LetterBoxComponent,
+    WordBoxComponent
   ],
   imports: [
     BrowserModule,
