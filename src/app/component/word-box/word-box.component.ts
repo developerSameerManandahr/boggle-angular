@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {WordGeneratorService} from '../../service/word-generator.service';
-import {Letter, Words} from '../../model/words';
+import {Letter} from '../../model/letter';
+import {Router} from '@angular/router';
+import {WordManagerService} from '../../service/word-manager/word-manager.service';
 
 @Component({
   selector: 'app-word-box',
@@ -11,33 +13,41 @@ import {Letter, Words} from '../../model/words';
 export class WordBoxComponent implements OnInit {
   public letterMatrix: Array<Array<Letter>> = [];
   public squareLength = 4;
-  public words = new Words();
   public wordList = [];
+  public username = '';
 
   constructor(
-    private wordGeneratorService: WordGeneratorService
+    private wordGeneratorService: WordGeneratorService,
+    private wordManagerService: WordManagerService,
+    private router: Router,
   ) {
   }
 
   ngOnInit(): void {
+    this.username = localStorage.getItem('username');
+    if (!this.username) {
+      this.router.navigate(['/']);
+    }
     this.getWords();
   }
 
-  getWords(): void {
-    this.letterMatrix = this.wordGeneratorService.generateWordMatrix(this.squareLength);
-    console.log('this.letterMatrix', this.letterMatrix);
+  public addWord(letter: Letter) {
+    this.wordManagerService.add(letter);
   }
 
-  addWord(letter: Letter) {
-    this.words.add(letter);
-    console.log(this.words.getWord());
-  }
-
-  submit() {
-    const word = this.words.getWord();
-    if (!this.wordList.find(value => word === value) && word.length >= 3) {
-      this.wordList.push(word);
+  public submit() {
+    const word = this.wordManagerService.getWord();
+    if (word.length >= 3) {
+      if (!this.wordList.find(value => word === value)) {
+        this.wordList.push(word);
+      }
+      this.wordManagerService.clear();
+    } else {
+      alert('Cannot submit words with less than 3 characters');
     }
-    this.words.clear();
+  }
+
+  private getWords(): void {
+    this.letterMatrix = this.wordGeneratorService.generateWordMatrix(this.squareLength);
   }
 }

@@ -1,7 +1,13 @@
-/**
- * Class to manage the word that is formed by clicked letter
- */
-export class Words {
+import { Injectable } from '@angular/core';
+import {Letter} from '../../model/letter';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WordManagerService {
+
+  constructor() { }
+
   private words: Array<Letter> = [];
 
   /**
@@ -20,6 +26,7 @@ export class Words {
    * get actual string word from array of Letter interface
    */
   public getWord(): string {
+    console.log(this.words);
     return this.words.map(value => value.character).join('');
   }
 
@@ -38,12 +45,12 @@ export class Words {
   }
 
   private comparePositionAndAdd(letter: Letter): void {
-    if (this.words.find(tempLetter => tempLetter.position === letter.position)) {
+    if (this.words.map(value => value.position).includes(letter.position)) {
       throw Error('Already clicked');
     }
     const lastPosition = this.words[this.words.length - 1].position;
     const positions = this.generatePossibleNextPosition(lastPosition);
-    if (positions.find(value => value === letter.position)) {
+    if (positions.includes(letter.position)) {
       this.words.push(letter);
     } else {
       throw Error('Cannot Add the letter');
@@ -79,12 +86,4 @@ export class Words {
     positions.push(bottomRight);
     return positions;
   }
-}
-
-/**
- * Letter model with character and position
- */
-export interface Letter {
-  character: string;
-  position: number;
 }

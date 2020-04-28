@@ -1,4 +1,4 @@
-<p>word-box works!</p>
+<h3>Welcome {{username}}</h3>
 
 <div *ngFor="let letters of letterMatrix" class="btn-group">
   <div *ngFor="let letter of letters">
@@ -6,11 +6,11 @@
   </div>
 </div>
 
-<p>{{words.getWord()}}</p>
+<p>{{wordManagerService.getWord()}}</p>
 
 <button (click)="submit()">submit</button>
 
-<button (click)="words.removeLastLetter()">backspace</button>
+<button (click)="wordManagerService.removeLastLetter()">backspace</button>
 
 <div *ngFor="let word of wordList">
   <p> {{word}}</p>
