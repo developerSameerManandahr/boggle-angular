@@ -1,13 +1,10 @@
 .btn-group button {
-  background-color: #af7f17; /* Green background */
-  border: 1px solid #80682a; /* Green border */
-  color: white; /* White text */
-  padding: 10px 24px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  float: left; /* Float the buttons side by side */
+  padding: 10px 24px;
+  cursor: pointer;
+  float: left;
 }
 
-/* Clear floats (clearfix hack) */
+
 .btn-group:after {
   content: "";
   clear: both;
@@ -15,10 +12,25 @@
 }
 
 .btn-group button:not(:last-child) {
-  border-right: none; /* Prevent double borders */
+  border-right: none;
 }
 
-/* Add a background color on hover */
+
 .btn-group button:hover {
-  background-color: #8e0017;
+  background-color: #338e8e;
 }
+
+
+.selected{
+  background-color: #11af04;
+  border: 1px solid #488031;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer;
+  float: left;
+}
+.square {
+  width: 55px;
+  height: 55px;
+}
+

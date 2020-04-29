@@ -24,7 +24,8 @@ export class WordGeneratorService {
         const position = i * 10 + j;
         stringMatrix[i][j] = {
           character,
-          position
+          position,
+          isSelected: false
         };
       }
     }

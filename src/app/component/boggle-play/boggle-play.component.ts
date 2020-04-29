@@ -17,8 +17,8 @@ export class BogglePlayComponent implements OnInit {
   public username = '';
 
   constructor(
+    public wordManagerService: WordManagerService,
     private wordGeneratorService: WordGeneratorService,
-    private wordManagerService: WordManagerService,
     private router: Router,
   ) {
   }

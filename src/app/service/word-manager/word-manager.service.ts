@@ -16,6 +16,7 @@ export class WordManagerService {
    */
   public add(letter: Letter) {
     if (!this.words.length) {
+      letter.isSelected = true;
       this.words.push(letter);
     } else {
       this.comparePositionAndAdd(letter);
@@ -34,6 +35,7 @@ export class WordManagerService {
    * clear words array
    */
   public clear(): void {
+    this.unselectAll();
     this.words = [];
   }
 
@@ -41,7 +43,16 @@ export class WordManagerService {
    * remove last letter from the forming word
    */
   public removeLastLetter() {
+    const lastLetter = this.words[this.words.length - 1];
+    lastLetter.isSelected = false;
     this.words.pop();
+  }
+
+  /**
+   * remove selection from all letter
+   */
+  private unselectAll() {
+    this.words.forEach(letter => letter.isSelected = false);
   }
 
   private comparePositionAndAdd(letter: Letter): void {
@@ -51,6 +62,7 @@ export class WordManagerService {
     const lastPosition = this.words[this.words.length - 1].position;
     const positions = this.generatePossibleNextPosition(lastPosition);
     if (positions.includes(letter.position)) {
+      letter.isSelected = true;
       this.words.push(letter);
     } else {
       throw Error('Cannot Add the letter');

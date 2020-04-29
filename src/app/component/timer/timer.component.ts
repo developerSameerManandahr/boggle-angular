@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 })
 export class TimerComponent implements OnInit {
 
-  public timeLeft = 10;
+  public timeLeft = 100000;
 
   constructor(
     private router: Router
