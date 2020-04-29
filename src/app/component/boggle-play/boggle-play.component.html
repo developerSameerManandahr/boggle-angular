@@ -1,5 +1,12 @@
 <h3>Welcome {{username}}</h3>
 
+<p>
+  Click on the letters to find word!
+</p>
+<div class="timer">
+  <app-timer></app-timer>
+
+</div>
 
 <div *ngFor="let letters of letterMatrix" class="btn-group">
   <div *ngFor="let letter of letters">
@@ -9,15 +16,12 @@
 </div>
 
 
-<p>{{wordManagerService.getWord()}}</p>
+<p>{{getWord()}}</p>
 
 <button (click)="submit()">submit</button>
 
-<button (click)="wordManagerService.removeLastLetter()">backspace</button>
+<button (click)="removeLastLetter()">backspace</button>
 
 <div *ngFor="let word of wordList">
   <p> {{word}}</p>
 </div>
-
-
-<app-timer></app-timer>

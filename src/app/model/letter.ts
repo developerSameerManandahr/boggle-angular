@@ -4,5 +4,5 @@
 export interface Letter {
   character: string;
   position: number;
-  isSelected: boolean;
+  isSelected?: boolean;
 }

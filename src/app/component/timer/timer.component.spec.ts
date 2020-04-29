@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimerComponent } from './timer.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('TimerComponent', () => {
   let component: TimerComponent;
@@ -8,7 +9,8 @@ describe('TimerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimerComponent ]
+      declarations: [ TimerComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));

@@ -15,7 +15,7 @@ export class WordGeneratorService {
    */
   public generateWordMatrix(length: number = 4): Array<Array<Letter>> {
     const stringMatrix: Array<Array<Letter>> = [];
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
       stringMatrix[i] = [];
