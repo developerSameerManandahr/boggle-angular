@@ -1,4 +1,9 @@
 export interface Score {
-  isValid: boolean;
+  valid: boolean;
+  score: number;
+}
+
+export interface UserScore {
+  username: string;
   score: number;
 }

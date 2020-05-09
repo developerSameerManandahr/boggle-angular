@@ -1,7 +1,17 @@
-<h1>Welcome to Boggle</h1>
+<img src="assets/logo/boggle.png" alt="image" class="center">
 
-<label>
-  <input type="text" [(ngModel)]="username" (keyup.enter)="submit()">
-</label>
+<div class="intro">
+  <div>
+    <mat-label><h2>Welcome to Boggle</h2></mat-label>
+  </div>
+  <div>
+    <label>
+      <input type="text" matInput placeholder="Enter you name" [(ngModel)]="username" (keyup.enter)="submit()">
+    </label>
+  </div>
 
-<button (click)="submit()">submit</button>
+  <div class="intro-submit">
+    <button mat-raised-button color="primary" (click)="submit()">submit</button>
+  </div>
+</div>
+

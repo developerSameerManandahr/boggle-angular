@@ -1,5 +1,29 @@
-<h2>Time is up!</h2>
+<div class="container">
+  <h2 align="center">Congratulation {{userScore.username}}!</h2>
 
-<p>Your Score is <b>{{score}}</b></p>
+  <p class="center-text">Your Score is <b>{{userScore.score}}</b></p>
 
-<button>play again</button>
+  <p class="center-text"> High Scores: </p>
+
+  <div class="table">
+    <table mat-table [dataSource]="highScores" class="mat-elevation-z2">
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="score">
+        <th mat-header-cell *matHeaderCellDef> Score </th>
+        <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row class="{{userScore.username === row.username?'current-user': ''}}" *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+  <div class="center-text">
+    <button class="center-button" (click)="exit()">Exit</button>
+  </div>
+
+</div>

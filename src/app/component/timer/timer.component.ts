@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,19 +8,26 @@ import {Router} from '@angular/router';
 })
 export class TimerComponent implements OnInit {
 
-  public timeLeft = 100000;
+  public timeLeft = 180;
+
+  public timeView;
+
+  @Output()
+  public eventEmitter = new EventEmitter<string>();
 
   constructor(
-    private router: Router
   ) {
   }
 
   ngOnInit(): void {
     const timer = setInterval(() => {
+      const minute = Math.floor(this.timeLeft / 60);
+      const second = this.timeLeft % 60;
+      this.timeView = (minute ? minute + ' min ' : '') + second + 'second left';
       this.timeLeft--;
       if (this.timeLeft <= 0) {
         clearInterval(timer);
-        this.router.navigate(['/score']);
+        this.eventEmitter.emit();
       }
     }, 1000);
   }

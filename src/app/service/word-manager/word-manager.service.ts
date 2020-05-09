@@ -27,7 +27,6 @@ export class WordManagerService {
    * get actual string word from array of Letter interface
    */
   public getWord(): string {
-    console.log(this.words);
     return this.words.map(value => value.character).join('');
   }
 

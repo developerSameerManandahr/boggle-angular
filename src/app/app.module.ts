@@ -9,6 +9,13 @@ import {FormsModule} from '@angular/forms';
 import { IntroComponent } from './component/intro/intro.component';
 import { TimerComponent } from './component/timer/timer.component';
 import { ScoreComponent } from './component/score/score.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {HttpClientModule} from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,14 @@ import { ScoreComponent } from './component/score/score.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatListModule,
+        HttpClientModule,
+        MatTableModule
     ],
   providers: [],
   bootstrap: [AppComponent]

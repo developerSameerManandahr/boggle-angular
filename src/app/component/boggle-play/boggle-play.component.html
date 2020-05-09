@@ -1,27 +1,40 @@
-<h3>Welcome {{username}}</h3>
+<img src="assets/logo/boggle.png" alt="image" class="center">
 
-<p>
-  Click on the letters to find word!
-</p>
-<div class="timer">
-  <app-timer></app-timer>
+<div class="container">
+  <div id="left">
+    <div class="timer">
+      <app-timer (eventEmitter)="receiveEvent()"></app-timer>
+    </div>
+    <div class="upper-box">
+      <button (click)="removeLastLetter()" class="btn-half">backspace</button>
+      <button (click)="clearCurrentWord()" class="btn-half">clear word</button>
+    </div>
+    <div class="current-word">{{currentWord? currentWord : "CURRENT WORD"}}</div>
+    <div class= "box">
+      <div *ngFor="let letters of letterMatrix" class="btn-group">
+        <div *ngFor="let letter of letters">
+          <button class="square {{letter.isSelected? 'selected': 'default'}}"
+                  (click)="addWord(letter)">{{letter.character}}</button>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div>
+      <button class="btn-submit btn-full" (click)="submit()">submit</button>
+    </div>
 
-<div *ngFor="let letters of letterMatrix" class="btn-group">
-  <div *ngFor="let letter of letters">
-    <button class="square {{letter.isSelected? 'selected': 'default'}}"
-            (click)="addWord(letter)">{{letter.character}}</button>
+    <button class="end-game btn-full" (click)="endGame()"> end game</button>
   </div>
+
+  <div id="middle">
+    <p>User : <b>{{username}}</b></p>
+    <mat-list>
+      <div *ngFor="let word of wordList">
+        <mat-list-item class="mat-list-item-background"> {{word}}</mat-list-item>
+      </div>
+    </mat-list>
+    <p> Score: {{score}}</p>
+  </div>
+
 </div>
 
-
-<p>{{getWord()}}</p>
-
-<button (click)="submit()">submit</button>
-
-<button (click)="removeLastLetter()">backspace</button>
-
-<div *ngFor="let word of wordList">
-  <p> {{word}}</p>
-</div>
