@@ -18,7 +18,7 @@ export class ApiService {
    */
   public validateWordAndCalculateScore(word: string): Promise<Score> {
     return this.httpClient.get<Score>(
-      'http://localhost:8080/dictionary/',
+      'https://boggle-spring.herokuapp.com/dictionary/',
       {
         params: {
           word
@@ -28,14 +28,14 @@ export class ApiService {
 
   public submitUserScore(userScore: UserScore): Promise<UserScore> {
     return this.httpClient.post<UserScore>(
-      'http://localhost:8080/userScoreDetail/',
+      'https://boggle-spring.herokuapp.com/userScoreDetail/',
       userScore
     ).toPromise();
   }
 
   public getAllScore(): Promise<Array<UserScore>> {
     return this.httpClient.get<Array<UserScore>>(
-      'http://localhost:8080/userScoreDetail/'
+      'https://boggle-spring.herokuapp.com/userScoreDetail/'
     ).toPromise();
   }
 }
