@@ -1,9 +1,10 @@
 import {TestBed} from '@angular/core/testing';
 
 import {DataService} from './data.service';
+import {UserScore} from '../../model/score';
 
 describe('DataServiceService', () => {
-  let service: DataService;
+  let service: DataService<UserScore>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
